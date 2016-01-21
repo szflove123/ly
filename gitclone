@@ -24,7 +24,7 @@ git add 文件名
 git commit -m "代码提前描述"
 
 
-git push origin master #推
+git push origin master #推（仅限于文件）
 
 
-git pull origin master #拉
+git pull origin master #拉（在使用文件夹的情况下）
