@@ -1,0 +1,30 @@
+ubuntu下安装git
+
+sudo apt-get updata //更新源   sudo apt-get upgrade //更新已安装的包
+sudo apt-get install git // 安装git
+
+创建用户名
+
+git config --global user.name "dognie"
+git config --global user.email dognie@yahoo.com
+git config --global core.editor emacs #设置编译器
+
+查看配置信息 
+git config --list
+
+建立ssh key
+ssh-keygen -t rsa-c "Email"
+查看公钥
+cat ~/.ssh/id_rsa.pub
+clone项目
+git clone https://
+
+添加文件
+git add 文件名
+git commit -m "代码提前描述"
+
+
+git push origin master #推
+
+
+git pull origin master #拉
