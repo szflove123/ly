@@ -1,0 +1,9 @@
+cd a 进入a目录，cd ..返回下一个目录 ， cd  home 返回home目录
+ls显示目录，  mkdir b新建b目录，  rm -rf a 删除b目录，  进入该目录，输入rm -rf *输出该目录下文件
+nano 文件名 直接编辑文件， echo回声  cat显示文本文字   
+grep -r 文件名 查找该文件， cp -r a b 把a目录复制到b目录 
+curl 网址 是网址跑起来，   wget 网址 下载网址    mv 文件名 移动文件
+删除文件里的内容：先按alt再按a,然后将鼠标移到第一行，然后Ctrl+k
+git config --global user.name "username"//用户名
+⊙git config --global user.email "useremail"// 用户邮箱
+⊙git config --global core.editor vim //设置编译器
