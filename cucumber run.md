@@ -1,6 +1,28 @@
-# 关于在Linux终端运行cucumber的步骤
+# cucumber自动化测试
+## 安装vagrant搭建一个Linux开发环境：
 
-## cucumber运行起来需要打开三个终端
+  * VirtualBox安装,安装下载地址https://www.virtualbox.org/wiki/Downloads；Vagrant安装下载地址https://www.vagrantup.com/downloads.html
+  * 安装git,官网https://git-scm.com/download/
+  
+
+## 安装好git后打开git bash,环境下输入命令
+
+    $ mkdir ubuntu14.04
+    $ cd ubuntu14.04
+    $ vagrant init ubuntu/trusty64(ubuntu指的是虚拟机的名字，可以自行设置，trusty64是vagrant所需要的box,输入这个就可以在虚拟机上自行安装)
+
+## linux上映射到windows的设置
+ * 打开ubuntu下的自动生成的vagrantfile文件，修改
+ *  config.vm.synced_folder "../data", "/vagrant_data" （去掉前面的#号，然后在windows下建立data文件，data也可以自定义改名，vagrantfile中也要改变data）
+
+
+## 关于在Linux终端运行cucumber的步骤
+
+       $ vagrant up 
+       $vagrant ssh
+      
+       
+### cucumber运行起来需要打开三个终端
 * 第一个终端是运行终端
 * 第二个是服务器终端
 * 第三个是本地服务器终端
