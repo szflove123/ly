@@ -22,11 +22,11 @@
   * 安装android studio，网址http://www.android-studio.org/
   
   * 安装好之后，需要配置环境变量
-   1. path：将sdk路径放在后面（前面需要加;）
-   2. android-home:将sdk路径放在里面（新建android-home）
+   1. path：;F:\Android\sdk\tools;F:\Android\sdk\platform-tools
+   2. android-home:将sdk路径放在里面F:\Android\sdk（新建android-home）
   
   * 打开cmd,安装appium，输入
    1. npm install -g appium(-g是全局变量)或者是
-   2. npm --registry http://registry.cnpmjs.org install -g appium 
+   2. npm --registry http://registry.cnpmjs.org install -g appium （如果这个方法都不行，就将npm文件装在C:\Users\Administrator\AppData\Roaming\npm里面）
   
   * 安装好之后，打开cmd,输入appium,有start输出就可以了
