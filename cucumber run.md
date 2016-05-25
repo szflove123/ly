@@ -73,3 +73,7 @@
   
 ##然后等待终端跑起来吧！
 
+
+###关于linux的映射问题，就是说使ubuntu下的文件内容在windows上也可以看见，需要在ubuntu的文件下的vgrantfile改了， #config.vm.synced_folder "../data", "/vagrant_data"
+注释掉#
+
