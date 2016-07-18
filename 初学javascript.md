@@ -41,7 +41,8 @@ true
  * 使用的方法  
    * call()方法，是一个对象可以调用另一个对象的方法，还有继承和多重继承
    ```
-   
+   function my(property) { return (this.hasOwnProperty(property)); } var obj={age:20}; my.call(obj,"age");
+   ```
  * 继承
  * 递归
  * 闭包
