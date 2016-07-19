@@ -39,10 +39,13 @@ true
    obj.hasOwnProperty(name); name in obj
  ```
  * 使用的方法  
-   * call()方法，是一个对象可以调用另一个对象的方法，还有继承和多重继承
+   * call()方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.还有继承和多重继承
+   其实在js中只有函数，而方法只不过是在函数的内部代码使用了this的函数
    ```
    function my(property) { return (this.hasOwnProperty(property)); } var obj={age:20}; my.call(obj,"age");
    ```
+   
+   * apply()方法和call一样，但是接受的是数组
  * 继承
  * 递归
  * 闭包
