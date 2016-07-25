@@ -90,5 +90,5 @@ true
  * 继承
  * 递归
  * 闭包
- * 
+ * ASCII码值的转换："A".charCodeAt(0)//A->65;String.fromCharCode(97);//97->a;
 更多内容可以看https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
