@@ -35,9 +35,10 @@
   var person=new my('ly');
   person.say();
   ```
-   *  _proto_ JavaScript在创建对象的时候，都会有一个proto的内置属性，用于指向创建它的函数对象的prototype。原型对象也有proto属性。因此在不断的指向中，形成了原型链。
+   *  _proto_ JavaScript在创建对象的时候，都会有一个proto的内置属性，用于指向创建它的函数对象的prototype。原型对象也有proto属性。因此在不断的指向中，形成了原型链。o._proto_->Object._proto_->null
    *  constructor 原型对象prototype上都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用。
    * ![原型链](https://segmentfault.com/img/bVwFw5)
+   
    * 原型链最终都会指向Object.prototype->null
  * 构造函数模式 所谓"构造函数"，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。
   * 实例对象，在创建实例对象后，实例对象会有一个constructor属性，指向他们的构造函数
@@ -90,5 +91,51 @@ true
  * 继承
  * 递归
  * 闭包
- * ASCII码值的转换："A".charCodeAt(0)//A->65;String.fromCharCode(97);//97->a;
+ * ASCII码值的转换："A".charCodeAt(0)//A->65;(0)代表的是一个顺序，0，1，2 String.fromCharCode(97);//97->a;
+  * 参数个数和函数length属性是否相等
+   * 实参
+   ```
+   function my() { 
+ while (arguments.length<30) { 
+		 arguments.length++;//代表的是实参
+		 console.log('参数个数'+arguments.length+','+'函数length'+my.length);
+	} 
+}  
+my();//由此可见打印出来的结果并不相等
+```
+  * 形参
+  ```
+  var s='a';//s是个字符串，代表的是形参
+var count=1;//代表的是形参个数
+for (var i = 98; i < 100; i++) {//使用的是阿斯克码值，97是a
+  s+=','+String.fromCharCode(i);//s就是字符串,String.fromCharCode()是转换成字母
+  count++;//形参个数也增加
+eval('function my('+s+') {}');//eval里是一个函数，有引号的地方代表不变的
+console.log('参数个数:'+conunt+my.length); 
+} 
+```
+
+```
+function my() {
+	var s='a';
+	for (var i = 98; i < 100; i++) {
+  s+=','+String.fromCharCode(i);}
+  return s;
+} 
+my();
+```
+
+   * 随机写出一个参数
+```
+function my(len) { 
+	var s='';//定义一个空字符串
+	while(s.length<len&&len>0) { //为了生成的字符串长度为len
+		var r=Math.random();//定义一个值在0到1之间随机数
+		s+=String.fromCharCode(Math.floor(r*26)+97);//使用阿斯克码值的转换成小写字母，floor取得整值，97是a的阿斯克码值
+	} 
+	return s; //返回的是s
+} 
+my(3);//随机生成一个长度为3的字符串
+```
+
 更多内容可以看https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
