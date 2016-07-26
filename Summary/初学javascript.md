@@ -48,10 +48,11 @@
   *  constructor 原型对象prototype上都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用。
   * ![原型链](https://segmentfault.com/img/bVwFw5)
    
-  * 原型链最终都会指向Object.prototype->null
+  
   * 构造函数模式 所谓"构造函数"，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。
   * 实例对象，在创建实例对象后，实例对象会有一个constructor属性，指向他们的构造函数
   * 每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承
+  * 每个对象都有prototype原型属性，实例对象的_proto_是指向对象的prototype属性的，原型链最终都会指向Object.prototype->null
 
 ##### javascript包含六个基本的数据类型：String, Number, Boolean, Undefined, Null, Object
   * 局部变量和全局变量的区别
