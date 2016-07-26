@@ -145,5 +145,6 @@ function random(len) {
 } 
 random(3);//随机生成一个长度为3的字符串
 ```
+  * 函数的length属性是根据形参个数来改变的，和实参个数无关
 
 更多内容可以看https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
