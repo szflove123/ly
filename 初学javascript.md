@@ -14,25 +14,25 @@
  * 对象：对象其实就是一个属性的集合，方法只是属性的值以函数的形式
   * 创建对象有三种1.工厂模式，2.构造函数3.原型
   ```
-  function my(name) {//工厂模式
+  function factory(name) {//工厂模式
   var o=new Object();
   o.name=name;
   o.say=function () {
   alert(this.name);}
   return o;
   }
-  function My(name) { //构造函数首字母大写
+  function Create(name) { //构造函数首字母大写
   this.name=name;
   this.say=function () {
   alert(this.name);
   }; 
   }
-  function my(name) {  //原型模式
-  my.prototype.name=name;
-  my.prototype.say=function () {
+  function proto(name) {  //原型模式
+  proto.prototype.name=name;
+  proto.prototype.say=function () {
   alert(this.name); }
   }
-  var person=new my('ly');
+  var person=new proto('ly');
   person.say();
   ```
    *  _proto_ JavaScript在创建对象的时候，都会有一个proto的内置属性，用于指向创建它的函数对象的prototype。原型对象也有proto属性。因此在不断的指向中，形成了原型链。o._proto_->Object._proto_->null
@@ -50,7 +50,7 @@
   * var的使用，如果在函数体中，没有使用var就成k了全局变量，否则就是局部变量
   * 有一段代码，可以加深理解
   ```
-  function my() {
+  function variable() {
   var a=b=1; } =>var a,b=1;a是局部变量，b是全局变量，为避免不必要的错误，可以改成：var a,b; a=b=1;
   ```
  * js检测数据类型
@@ -69,9 +69,9 @@
    ```
 [].constructor
 function Array()
-function my(name) { this.name=name;} new my("ly").constructor;
-function my()
-function my(name) { this.name=name;} new my("ly").constructor===my;
+function method(name) { this.name=name;} new method("ly").constructor;
+function obj()
+function obj(name) { this.name=name;} new obj("ly").constructor===obj;
 true
 ```
 
@@ -82,26 +82,34 @@ true
  
  * 使用的方法  
    * call()方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.还有继承和多重继承
-   其实在js中只有函数，而方法只不过是在函数的内部代码使用了this的函数
+   其实在js中只有函数，而方法只不过是在函数的内部代码使用了this的函数,调用的是call前面的方法，接的是字符串
    ```
-   function my(property) { return (this.hasOwnProperty(property)); } var obj={age:20}; my.call(obj,"age");
+   function hasproperty(property) { return (this.hasOwnProperty(property)); } var obj={age:20}; hasproperty.call(obj,"age");
    ```
    
    * apply()方法和call一样，但是接受的是数组
+   ```
+function hasproperty(property) { return (this.hasOwnProperty(property)); } var obj={age:20}; hasproperty.apply(obj,['age']);
+```
  * 继承
  * 递归
  * 闭包
  * ASCII码值的转换："A".charCodeAt(0)//A->65;(0)代表的是一个顺序，0，1，2 String.fromCharCode(97);//97->a;
-  * 参数个数和函数length属性是否相等
+  * 发现一个问题，函数是否具有length属性，然后写了一段代码
+  ```
+function has() { }; has.hasOwnProperty('length')
+true//发现length属性是存在函数上的，然后属性length到底是根据什么来定义的
+```
+   * 参数个数和函数length属性是否相等
    * 实参
    ```
-   function my() { 
+   function argumentMethod() { 
  while (arguments.length<30) { 
 		 arguments.length++;//代表的是实参
 		 console.log('参数个数'+arguments.length+','+'函数length'+my.length);
 	} 
 }  
-my();//由此可见打印出来的结果并不相等
+argumentMethod();//由此可见打印出来的结果并不相等
 ```
   * 形参
   ```
@@ -110,24 +118,24 @@ var count=1;//代表的是形参个数
 for (var i = 98; i < 100; i++) {//使用的是阿斯克码值，97是a
   s+=','+String.fromCharCode(i);//s就是字符串,String.fromCharCode()是转换成字母
   count++;//形参个数也增加
-eval('function my('+s+') {}');//eval里是一个函数，有引号的地方代表不变的
+eval('function parameter('+s+') {}');//eval里是一个函数，有引号的地方代表不变的
 console.log('参数个数:'+conunt+my.length); 
 } 
 ```
 
 ```
-function my() {
+function () {
 	var s='a';
 	for (var i = 98; i < 100; i++) {
   s+=','+String.fromCharCode(i);}
   return s;
 } 
-my();
+random();//提取出来的函数，可以用来生成参数个数，中间用逗号隔开，生成小写字母
 ```
 
    * 随机写出一个参数
 ```
-function my(len) { 
+function random(len) { 
 	var s='';//定义一个空字符串
 	while(s.length<len&&len>0) { //为了生成的字符串长度为len
 		var r=Math.random();//定义一个值在0到1之间随机数
@@ -135,7 +143,7 @@ function my(len) {
 	} 
 	return s; //返回的是s
 } 
-my(3);//随机生成一个长度为3的字符串
+random(3);//随机生成一个长度为3的字符串
 ```
 
 更多内容可以看https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
