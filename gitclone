@@ -28,3 +28,5 @@ git push origin master #推（仅限于文件）
 
 
 git pull origin master #拉（在使用文件夹的情况下）
+
+** git增加文件夹的方法：在文件名前面创建文件夹，（英文的）以‘/’结尾，倒回去就用‘..’，然后在’/‘
