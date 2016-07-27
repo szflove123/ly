@@ -187,8 +187,54 @@ var obj={age:20}; hasproperty.apply(obj,['age']);
  
 
 #### 迭代：指的是按照某种顺序逐个访问列表中的每一项。比如，for语句。
+ * filter():对数组中的每一项运行给定函数。返回该函数会返回 true 的项组成的数组。
+ 
+```javascript
+var x=[2,3,4];
+x.filter(function(item) {
+  return (item>2); }//在执行完每一项后，返回true的数[3,4]
+)
+```
+
+ * forEach():对数组中每一项运行给定函数。该函数没有返回值。
+ 
+```javascript
+var x=[2,3,4];
+x.forEach(function (item) {
+return (item>2); }//执行每一项之后，没有返回值
+)
+```
+ * map():对数组中每一项运行给定函数。返回每次函数调用的结果组成的函数。
+ 
+```javascript
+var x=[2,3,4];
+x.map(function (item) {
+ return (item*2); }//[4,6,8]每一项都进行了运算，返回运算的值
+)
+```
+
+ * some():对数组中每一项运行给定函数。如果函数对 任一项返回 true，则返回 true
+ 
+```javascript
+var x=[2,3,4];
+x.some=(function (item) {
+return (item>2);  }//true,只要有一个值是对的，就返回true
+)
+x.every(function (item) {
+return (item>2); }//false,只要有一个值是错的，就返回false
+)
+```
 
 ##### 遍历： 指的是按照一定的规则访问树形结构中的每个节点，而且每个节点都只访问一次。
+* for...in
+
+```javascript
+var obj={};obj.a=1;obj.b=2;
+for (prop in obj){
+console.log(prop);
+}
+```
+
 ##### 循环： 指的是在满足条件的情况下，重复执行同一段代码。比如，while语句
 ##### 继承
 ##### 递归：指的是一个函数不断调用自身的行为
