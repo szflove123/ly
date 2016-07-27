@@ -9,7 +9,23 @@
  function 函数名(参数，注意参数书写规范) { 源代码}
  ```
    函数中的参数有形参和实参之分，形参是没有赋值的变量，并不占有空间，实参又是变量，拥有确定的值，形参接受的是实参的值
-
+   * 函数的声明和赋值
+   
+   ```javascript
+   function check() { if(!foo) { var foo=2; }
+   return foo; } 
+   check();//2
+   ```
+   这个时候思考！foo什么意思，foo代表是赋了值的，而！foo代表的是没有赋值的（foo=0也算没有赋值），只有在！foo没有赋值才会执行
+   foo之前没有出现过函数中，怎么没有报未定义的错
+   然后了解一下js编译器的运行机制，原来js是先声明后赋值的，在进入函数的时候就相当于var foo; if(!foo)
+   所以最后会执行这个步骤，打印出2
+   
+   ```javascript
+   function check() { if(foo) { var foo=2; }
+   return foo; } 
+   check();//undefined,代表foo已经被声明了，但是并没有赋值，所以不会执行这个函数
+   ```
 
 ##### 对象：对象其实就是一个属性的集合，方法只是属性的值以函数的形式
   * 方法:这是相当于一个隐式函数，隐藏的就是对象，在源代码中是用this来调用，this指向的是当前函数体的对象
@@ -41,6 +57,27 @@
   var person=new proto('ly');
   person.say();
   ```
+   * 属性检测
+    * 对象属性的检测
+    
+```javascript
+function hasProperty(aObj,aProperty) {
+return aObj.hasOwnProperty(aProperty)
+}
+var obj={age:10};
+hasProperty(obj,'age');//用in也可以检测
+```
+    * 对象自身属性的检测
+    
+    ```javascript
+    function hasProperty(aObj,aProperty) {
+    return aObj.hasOwnProperty(aProperty); }
+    function obj() {this.a=1};
+   obj.prototype.b=2;
+   var test=new obj();
+   hasProperty(test,'a');//true
+   hasProperty(test,'b');//false,不是自身的属性，是原型上的
+ ```
  
   
   
