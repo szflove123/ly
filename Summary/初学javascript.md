@@ -67,6 +67,8 @@ return aObj.hasOwnProperty(aProperty)
 var obj={age:10};
 hasProperty(obj,'age');//用in也可以检测
 ```
+    
+    
     * 对象自身属性的检测
     
     ```javascript
