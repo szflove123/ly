@@ -57,10 +57,11 @@
   var person=new proto('ly');
   person.say();
   ```
-   * 属性检测
-    * 对象属性的检测
+
+* 属性检测
+     * 对象属性的检测
     
-```javascript
+    ```javascript
 function hasProperty(aObj,aProperty) {
 return aObj.hasOwnProperty(aProperty)
 }
@@ -68,8 +69,7 @@ var obj={age:10};
 hasProperty(obj,'age');//用in也可以检测
 ```
     
-    
-    * 对象自身属性的检测
+  * 对象自身属性的检测
     
     ```javascript
     function hasProperty(aObj,aProperty) {
@@ -81,7 +81,6 @@ hasProperty(obj,'age');//用in也可以检测
    hasProperty(test,'b');//false,不是自身的属性，是原型上的
  ```
  
-  
   
 #####  _proto_ JavaScript在创建对象的时候，都会有一个proto的内置属性，用于指向创建它的函数对象的prototype。原型对象也有proto属性。因此在不断的指向中，形成了原型链。o._proto_->Object._proto_->null
   *  constructor 原型对象prototype上都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用。
