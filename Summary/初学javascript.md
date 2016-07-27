@@ -144,10 +144,54 @@ true
    * apply()方法和call一样，但是接受的是数组
   
    ```javascript
-function hasproperty(property) { return (this.hasOwnProperty(property)); } var obj={age:20}; hasproperty.apply(obj,['age']);
+function hasproperty(property) { 
+return (this.hasOwnProperty(property)); } 
+var obj={age:20}; hasproperty.apply(obj,['age']);
 ```
+##### 数组
+* 操作符
+  * 栈方法,有pop()和push()方法，push是推进去，pop是取出来，最后进去的先出来，后进先出
+  
+```javascript
+ var o=['a'];
+ o.push('ly');//['a','ly']
+ o.pop();//['a']
+ ```
+ 
+* 队列方法,shift()也是取出，是先进来的先出去，先进先出
+ 
+ ```javascript
+ var o=['ly','a'];
+ o.shift(); //['a']
+ ```
+ 
+* concat()是一个能够讲两个或多个数组链接起来的操作符
+ 
+ ```javascript
+ var o=['a','b']
+ o.concat('c');//['a','b','c']
+ ```
+
+* slice()是一个能复制数组区间的数，被操作的数组不变
+
+ ```javascript
+ var o=['a','b','c'];
+ var a=o.slice(0,1);//['a']复制0，1区间的数，但是o数组的值不会变
+ ```
+ 
+* splice()是一个可以删除数组中的某个数
+ ```javascript
+ var o=['a','b','c'];
+ var p=o.splice(0,1,'s');///['s','b','c']从第0项开始删除一项后又增加一个‘s'，o的值发生变化，p数组就是删掉的‘a'
+ ```
+ 
+
+#### 迭代：指的是按照某种顺序逐个访问列表中的每一项。比如，for语句。
+
+##### 遍历： 指的是按照一定的规则访问树形结构中的每个节点，而且每个节点都只访问一次。
+##### 循环： 指的是在满足条件的情况下，重复执行同一段代码。比如，while语句
 ##### 继承
-##### 递归
+##### 递归：指的是一个函数不断调用自身的行为
 ##### 闭包
 #####ASCII码值的转换："A".charCodeAt(0)//A->65;(0)代表的是一个顺序，0，1，2 String.fromCharCode(97);//97->a;
   * 发现一个问题，函数是否具有length属性，然后写了一段代码
