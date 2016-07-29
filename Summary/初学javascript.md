@@ -58,6 +58,25 @@
   person.say();
   ```
 
+* 类型
+  * 原始值: 相当于传值string，number，boolean，null，undefined
+  ```javascript
+var foo = 1,
+    bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // => 1, 9只是传值
+```
+  * 复杂类型: 相当于传引用 object，array， function
+```javascript
+var foo = [1, 2],
+    bar = foo;
+
+bar[0] = 9;
+
+console.log(foo[0], bar[0]); // => 9, 9,foo也发生了变化
+```
 * 属性检测
      * 对象属性的检测
     
