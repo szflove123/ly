@@ -238,7 +238,61 @@ console.log(prop);
 ##### 循环： 指的是在满足条件的情况下，重复执行同一段代码。比如，while语句
 ##### 继承
 ##### 递归：指的是一个函数不断调用自身的行为
-##### 闭包
+##### 闭包:指的是function函数体内还要镶嵌一个函数，通常是用return返回的
+* 闭包的作用：1.为了能从外部访问局部变量2.让这些变量的值始终保持在内存中。
+
+```javascript
+function foo() {
+var n=1;
+function foo1() {
+  alert(n);}
+return foo1;
+}
+var test=new foo();
+test();//1;在内部有个function，就可以创建实例，返回局部变量值
+```
+* 在上述中，foo1就是闭包，闭包就是能够读取其他函数内部变量的函数
+
+```javascript
+function foo() {
+ var n=1;
+ add=function () {
+ n+=1;}
+ function foo1() {
+ alert(n); }
+ return foo1; }
+ var test=new foo();
+ test();//1,直接返回闭包foo1
+ add();//这是一个全局变量，只有调用时，才会影响函数体
+ test();//2，已经调用了全局变量，所有d返回2
+ ```
+ * 在上书中，我们发现add在调用了一次之后，n的值还是存在的，而且不会改变，值是始终保存在内存中的
+ * 书上有一段函数，是用this调用的闭包，很值得思考
+ 
+```javascript
+var name='ly';
+var obj={ name:'lyy', 
+say:function () {  //在此时闭包只能访问this，name的值闭包不能访问
+return function () {
+  return this.name; };
+ }
+  };
+ alert(obj.say()());//'ly'obj.say()返回一个匿名函数,在全局环境调用该函数，this指向的全局对象
+```
+
+```javascript
+var name='ly';
+var obj={ name:'lyy', 
+say:function () {
+var that=this;//已经把that放在了闭包可以访问函数中了
+return function () {//这里就是一个闭包，他执行的是闭包的东西，访问的是整个函数体的东西，除了闭包里的东西不能访问
+  return that.name; };
+ }
+  };
+ alert(obj.say()());//这是将this的变量保存在闭包可以访问的地方‘lyy'
+ ```
+
+  
 #####ASCII码值的转换："A".charCodeAt(0)//A->65;(0)代表的是一个顺序，0，1，2 String.fromCharCode(97);//97->a;
   * 发现一个问题，函数是否具有length属性，然后写了一段代码
   
