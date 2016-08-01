@@ -1,7 +1,7 @@
 #### 现在才知道人真的是在不断的学习，以为高中轰轰烈烈的读完了，结果还有大学，大学要是没有学好，工作都找不到，有些事，真的很现实，比如你上班，没有掌握最近技术依然会被淘汰，人总是要去不断进步的，借用星爷的一句话：努力！奋斗！
 --------
 
-##### javascript是一种面向对象的编程（OOP）,从最简单的了解
+##### javascript是一种类似面向对象编程的语言（OOP）,从最简单的了解
  * 函数：这是一个可以被用来反复调用的方法,函数最重要的一定就是体内有个return返回值
  
  ```javascript
@@ -168,7 +168,7 @@ return (this.hasOwnProperty(property)); }
 var obj={age:20}; hasproperty.apply(obj,['age']);
 ```
 ##### 数组
-* 操作符
+* 操作符，所谓的方法都离不开对象
   * 栈方法,有pop()和push()方法，push是推进去，pop是取出来，最后进去的先出来，后进先出
   
 ```javascript
@@ -291,12 +291,12 @@ function foo() {
 ```javascript
 var name='ly';
 var obj={ name:'lyy', 
-say:function () {  //在此时闭包只能访问this，name的值闭包不能访问
+say:function () {  //在这个时候没有使用闭包
 return function () {
-  return this.name; };
+  return this.name; };//注意看return这个函数，并没有返回任何对象的调用，返回的只是this.name。并没有指明他的对象
  }
   };
- alert(obj.say()());//'ly'obj.say()返回一个匿名函数,在全局环境调用该函数，this指向的全局对象
+ alert(obj.say()());//'ly'obj.say()返回一个匿名函数,这个时候，编译器会默认对象是window
 ```
 
 ```javascript
@@ -310,7 +310,7 @@ return function () {//这里就是一个闭包，他执行的是闭包的东西�
   };
  alert(obj.say()());//这是将this的变量保存在闭包可以访问的地方‘lyy'
  ```
-
+综上所诉，闭包的运行机制就简单了，在一个环境下同时出现两个变量，为了避免冲突，可以使用闭包，这样就只能访问闭包里的东西，其他就不能访问
   
 #####ASCII码值的转换："A".charCodeAt(0)//A->65;(0)代表的是一个顺序，0，1，2 String.fromCharCode(97);//97->a;
   * 发现一个问题，函数是否具有length属性，然后写了一段代码
@@ -354,7 +354,7 @@ function () {
 random();//提取出来的函数，可以用来生成参数个数，中间用逗号隔开，生成小写字母
 ```
 
-   * 随机写出一个参数
+   * 随机写出一个字符串
    
 ```javascript
 function random(len) { 
