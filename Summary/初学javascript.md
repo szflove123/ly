@@ -2,6 +2,11 @@
 --------
 
 ##### javascript是一种类似面向对象编程的语言（OOP）,从最简单的了解
+ * js基本数据类型 
+``` 
+Undefined(未定义)、Null、Boolean(布尔)、Number（数值）、String（字符串）
+```
+ 
  * 函数：这是一个可以被用来反复调用的方法,函数最重要的一定就是体内有个return返回值
  
  ```javascript
