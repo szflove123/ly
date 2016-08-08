@@ -105,6 +105,8 @@ hasProperty(obj,'age');//用in也可以检测
    hasProperty(test,'b');//false,不是自身的属性，是原型上的
  ```
  
+
+ 
   
 #####  _proto_ JavaScript在创建对象的时候，都会有一个proto的内置属性，用于指向创建它的函数对象的prototype。原型对象也有proto属性。因此在不断的指向中，形成了原型链。o._proto_->Object._proto_->null
   *  constructor 原型对象prototype上都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用。
@@ -156,6 +158,10 @@ true
    ```javascript
    obj.hasOwnProperty(name); name in obj
    ```
+   
+   * Object.getOwnPropertyNames(),返回的是可枚举和不可枚举的属性数组，原型链上的属性就无法检测
+   * for...in返回可枚举的属性，原型链上的属性也能检测
+   * Object.keys()返回的是可枚举的属性数组，无法检测原型链上的属性
  
  * 使用的方法  
    * call()方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.还有继承和多重继承
