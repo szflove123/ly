@@ -35,6 +35,51 @@
     }   //外部函数只可以访问outervar
     ```
     
-    * 嵌套不限制在一个范围内，可以有多个嵌套，每个作用域变量都遵循这种规则，成员作用域对每个访问也会受到限制,
+    * 嵌套不限制在一个范围内，可以有多个嵌套
+    for example
     
+    ```javascript
+     function someFunc() {
+      function inner() {
+      }
+      function inner2() {
+        function foo() {
+        }
+      }
+    }
+
+// Produces this tree
+
+       someFunc()
+           |
+          / \
+         /   \
+        /     \
+       ↓       ↓
+    inner()  inner2()
+               |
+               ↓
+             foo()
+  ```
+  
+* js的运行时间遵循以下步骤去分配变量
+ * 在当前作用域下面搜寻
+ * 如果没有找到，就寻找外部的作用域
+ * 如果找到了，就执行第6步
+ * 如果还是没有找到，就执行第2步，直到全局作用域到达为止
+ * 如果全局作用域都没有，那就创建一个值（全局变量/当前窗口）
+ * 给这个值赋值
+
+for example
+
+```javascript
+ function someFunc() {
+       var scopedVar = 1;   //局部变量
+       function inner() {
+          foo = 2; //全局变量
+       }
+    }
+ ```
+ 
+* 闭包的概念很重要，他能够很好的去使用异步编程，具体看![闭包](https://github.com/ly1314529/ly/blob/master/Summary/%E9%97%AD%E5%8C%85%E7%9A%84%E6%A6%82%E5%BF%B5.md) 
     
