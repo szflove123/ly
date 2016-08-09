@@ -23,6 +23,18 @@
     }
   ```
   
-    * 所有潜逃作用域都遵循相同的规则，就是内部函数可以访问外部函数，但是外部不可以访问内部函数
-    * 
+    * 所有嵌套作用域都遵循相同的规则，就是内部函数可以访问外部函数，但是外部不可以访问内部函数
+    for example 
+    
+    ```javascript
+     function someFunc() {
+      var outerVar = 1;
+      function inner() {
+        var innerVar = 2;
+      } //内部函数可以访问两个变量innervar和outervar
+    }   //外部函数只可以访问outervar
+    ```
+    
+    * 嵌套不限制在一个范围内，可以有多个嵌套
+    
     
