@@ -263,15 +263,48 @@ return (item>2); }//false,只要有一个值是错的，就返回false
 )
 ```
 
-##### 遍历： 指的是按照一定的规则访问树形结构中的每个节点，而且每个节点都只访问一次。
-* for...in
+##### 遍历： 指的是按照一定的规则访问树形结构中的每个节点，而且每个节点都只访问一次
+
+* Object.getOwnPropertyNames() 该方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性）组成的数组，不能检测原型链上的属性
 
 ```javascript
-var obj={};obj.a=1;obj.b=2;
-for (prop in obj){
-console.log(prop);
-}
+var arr=[1,2,3]; Object.getOwnPropertyNames(arr)//["0", "1", "2", "length"]
+var obj={0:'a',1:'b'}; Object.getOwnPropertyNames(obj)//["0", "1"]
+
+Object.getOwnPropertyNames(obj).forEach(function (i) { console.log(i+obj[i]); })
+//0a
+//1b,将属性和值全部列出来
+var obj={}; Object.defineProperty(obj,"a",{enumerable:false,value:"ly" } );   Object.getOwnPropertyNames(obj)
+//["a"]将不可枚举的属性也能列出来
+function B() {this.b=2;}; B.prototype.a=1; var test=new B(); Object.getOwnPropertyNames(test)
+//["b"]原型链上的属性就无法检测出来
 ```
+
+* for ...in 以任意序迭代一个对象的可枚举属性和原型链上的属性，每个不同的属性，语句都会被执行一次
+
+```javascript
+var obj={a:1,b:2,c:3}; for(var i in obj) { console.log(i); }//a,b,c
+
+var obj={}; Object.defineProperty(obj,"a",{enumerable:false,value:"ly" } ); for(var i in obj) { console.log(i); }
+//undefined,因为for  in无法检测不可枚举属性
+
+function B() {this.b=2;}; B.prototype.a=1; var test=new B();  for(var i in test) {console.log(i); } //b a，原型链上的也能遍历
+```
+
+* Object.keys() 方法会返回一个由给定对象的所有可枚举自身属性的属性名组成的数组，而且不能检测原型链上的属性
+
+```javascript
+var obj=["a","b"]; Object.keys(obj)//["0", "1"]数组形式
+
+var obj={0:1,1:2}; Object.keys(obj)//["0", "1"]
+
+var obj={}; Object.defineProperty(obj,"a",{enumerable:false,value:"ly" } );  Object.keys(obj)
+//[]，无法检测不可枚举属性
+
+function B() {this.b=2;}; B.prototype.a=1; var test=new B(); Object.keys(test)
+//["b"]，无法检测原型链上的属性
+```
+
 
 ##### 循环： 指的是在满足条件的情况下，重复执行同一段代码。比如，while语句
 ##### 继承
