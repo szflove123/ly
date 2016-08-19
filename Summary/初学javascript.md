@@ -92,6 +92,7 @@ return aObj.hasOwnProperty(aProperty)
 var obj={age:10};
 hasProperty(obj,'age');//用in也可以检测
 ```
+
     
   * 对象自身属性的检测
     
@@ -142,6 +143,13 @@ hasProperty(obj,'age');//用in也可以检测
     typeof function(){};  
    ```
    typeof可以判断除null之外的数据类型，null返回的是object，function返回的是function
+   //最近在网上取经，发现有个东西可以通过对象的原型来检测属性的类型，比typeof好太多
+   
+   ```javascript
+   var s=null;
+   Object.prototype.toString.call(s);//检测出null。而typeof返回的是对象
+   ```
+   
    * .constructor,可以检查一个对象的类型
    
 ```javascript
