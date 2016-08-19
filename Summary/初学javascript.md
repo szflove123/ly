@@ -122,7 +122,7 @@ hasProperty(obj,'age');//用in也可以检测
 ##### javascript包含六个基本的数据类型：String, Number, Boolean, Undefined, Null, Object
   * 局部变量和全局变量的区别
   * 全局变量是存在于整个页面的,在该页面的各个地方都可以被调用，而局部变量是存在某个函数中的,只能在这个函数体中被调用
-  * var的使用，如果在函数体中，没有使用var就成k了全局变量，否则就是局部变量
+  * var的使用，如果在函数体中，没有使用var就成了全局变量，否则就是局部变量
   * 有一段代码，可以加深理解
   
   ```javascript
