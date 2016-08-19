@@ -101,7 +101,7 @@ hasProperty(obj,'age');//用in也可以检测
     return aObj.hasOwnProperty(aProperty); }
     function obj() {this.a=1};
    obj.prototype.b=2;
-   var test=new obj();
+   var test=new obj();//一定要创建实例，不然无法正确的检测属性
    hasProperty(test,'a');//true
    hasProperty(test,'b');//false,不是自身的属性，是原型上的
  ```
