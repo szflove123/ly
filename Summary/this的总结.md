@@ -10,7 +10,7 @@
  
  * 咳咳，进入正题，聊总结
  * 其实js中的东西都可以总结为一个对象来概括，只是函数是比较特殊的而已
-   * this在函数中使用时，就相当于是一个全局变量
+   * this在创建对象中使用时，指向的就是创建的对象
    
    ```javascript
    function Create() { //创建对象的一种，构造函数模式
@@ -19,7 +19,7 @@
    console.log(this.name); };//this的指针指向了create这个函数
    }
    var test=new Create();//构造函数有2点，1是调用this来指向被调用的对象，2是使用new新建一个实例对象
-   test.say();//'ly'这个时候this指向的是test这个对象了
+   test.say();//'ly'这个时候this指向的是test这个对象了,但是name并没有发生变化，创建实例，也是继承于Create这个对象
    ```
    
    ```javascript
@@ -34,8 +34,8 @@
   return(this.hasOwnProperty(property));
   } //对象已经被隐藏，用的是this，指向当前函数对象
   var obj={"age":10}; 
-  hasproperty("name");//true，对啊，但是这里的this却是发生了质的变化
-  hasproperty("age");//false 
+  hasproperty("name");//true，但是这里的this却是发生了质的变化，之所以返回true，是因为这个返回的对象是window，而window就已经有了这个名字属性了
+  hasproperty("age");//false，this返回的是window 
   console.log(this);//返回的是window
    ```
    
@@ -50,7 +50,7 @@
 ```
 
 
-call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
+call 方法可将一个函数的对象上下文从初始的上下文改变为由 this.Obj 指定的新对象。
 
   * 接着来看一下纯粹的函数调用
   ```javascript
@@ -67,7 +67,7 @@ call 方法可将一个函数的对象上下文从初始的上下文改变为由
   var x=2;
   alert(this.x);
   }
-  my();//1，this指向的是全局变量
+  my();//1，this指向的是全局变量,同样的这个方法只是返回this.obj,他并没有声明this到底指向那个对象，所以返回的就是全局对象
   ```
   
   ```javascript
