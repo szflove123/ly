@@ -25,10 +25,8 @@ adb devices (search for device now)
 
   * //android.widget.TextView[@resource-id="com.duowan.mobile:id/rb_main" and @text="手机" and @content-desc="热门推荐"]
 
-  * 如果不满足前面，则递归地寻找其父节点，直到找到唯一。再从其父节点开始，取绝对路径（元素索引），加起来唯一定位，其Xpath类似：
+* 在使用appium时候，需要打开3个端口
+ * 手机连接
+ * appium运行
+ * 行为驱动
 
-//X.XX.XXX[@resource-id=\"android:id/list\"]/X.XX.XXX[1]/X.XX.XXX[2]
-
-6.以上全不满足，则给出其绝对路径（元素索引），来唯一定位，其Xpath类似：
-
-//X.XX.XXX[1]/X.XX.XXX[2]/X.XX.XXX[5]/X.XX.XXX[2]
