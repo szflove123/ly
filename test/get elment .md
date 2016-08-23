@@ -30,3 +30,4 @@ adb devices (search for device now)
  * appium运行
  * 行为驱动
 
+参考资料[app元素获取](http://www.mobile-open.com/2016/969243.html)
