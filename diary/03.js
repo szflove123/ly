@@ -55,4 +55,9 @@ $(document).rady(function () {
 //slideDown() 方法通过使用滑动效果，显示隐藏的被选元素。
 //$(selector).slideDown(speed,callback)
 
-
+$('#blue').fadeOut('slow');
+//id=blue的文件可以用#blue表示
+//css想表示为圆形，border-radius: 100%;
+//<div class=ly> 表示为$('.ly')
+$('$panel').slidToggle('slow');
+//作用是可以向下滑出，向上收拢
