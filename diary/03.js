@@ -61,3 +61,12 @@ $('#blue').fadeOut('slow');
 //<div class=ly> 表示为$('.ly')
 $('$panel').slidToggle('slow');
 //作用是可以向下滑出，向上收拢
+$('body').append('<p>i/'m a people</p>');
+//append() 方法在被选元素的结尾（仍然在内部）插入指定内容
+$('.div').after('<p>to</p>');
+//在后面添加内容
+$('#one').after('<p>to</p>');
+$('#two').after($('p'));
+//移动<p>标签到two后面
+$('p').remove();
+//移除掉p这个标签
