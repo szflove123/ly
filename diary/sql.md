@@ -23,7 +23,8 @@ MAX()//最大的下载量
 MIN()//最小的下载量
 AVG()//平均量
 ROUND(download,2)//下载量省道小数点后两位
-
+SELECT * FROM table_name JOIN artists ON albums.artist_id = artists.id;//将两个表链接起来，而且albums.artist_id = artists.id
+sSELECT name AS newname FROM table_name; //重新为列名制定新名字
 
 ```
 * 创建
