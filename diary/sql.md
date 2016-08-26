@@ -18,6 +18,11 @@ SELECT * FROM table_name ORDER BY year ASC LIMIT 3;//按照jyear的升序排列�
 SELECT COUNT(*) FROM table_name;//算出表的总数据
 SELECT price, COUNT(*) FROM fake_apps WHERE downloads > 20000 GROUP BY price;
 //从表中查询下载量>20000的价格数量及价格列表,按照price来排列顺序
+SUM(download)//下载总量
+MAX()//最大的下载量
+MIN()//最小的下载量
+AVG()//平均量
+ROUND(download,2)//下载量省道小数点后两位
 
 
 ```
