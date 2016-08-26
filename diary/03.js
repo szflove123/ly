@@ -86,4 +86,8 @@ $('input[name=chik]').val();//从p标签得到值
 $('p').on('click','.item',function() {})
 //click是执行的事件，.item是被值ixngd元素，function是发生的行为
 $('div').dblclick();//连击 两下才回发生的事件
-
+$('img').animate({left: "-=10px"}, 'fast');//图片的移动
+$('div').effect('explode');//分裂特效
+$('div').effect("bounce", "slow");//反弹特效'bounce', {times:3}, 500
+$('div').effect("slide", "slow");//滑动而出
+$('div').draggle();//拖动div这个标签
