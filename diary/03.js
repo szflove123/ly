@@ -70,3 +70,20 @@ $('#two').after($('p'));
 //移动<p>标签到two后面
 $('p').remove();
 //移除掉p这个标签
+$('#text').click(function () {
+ $(this).addClass('height');
+});
+//增加一个calss属性
+//removeClass()删除一个class属性
+//toggleClass()增加删除属性相互切换
+$(document).ready(function () {
+ $('div').width('10px');
+ $('div').css("background-color","blue");
+});
+//改变css属性
+$('p').html('ly');//改变p标签为ly
+$('input[name=chik]').val();//从p标签得到值
+$('p').on('click','.item',function() {})
+//click是执行的事件，.item是被值ixngd元素，function是发生的行为
+$('div').dblclick();//连击 两下才回发生的事件
+
