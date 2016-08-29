@@ -91,3 +91,12 @@ $('div').effect('explode');//分裂特效
 $('div').effect("bounce", "slow");//反弹特效'bounce', {times:3}, 500
 $('div').effect("slide", "slow");//滑动而出
 $('div').draggle();//拖动div这个标签
+$('div').resizable();
+ //使 css布局按照div的布局执行
+ $('div').selectable();
+ //在鼠标点击的时候，背景色发现改变，点击另一处，原处背景色变回来，另一处改变
+ $('div').sortable();
+ //可以拖动项目条
+ $('div').accordion();
+ //把p标签隐藏在h标签里，点击时候才打开
+ 
